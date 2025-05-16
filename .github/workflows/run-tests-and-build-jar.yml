@@ -39,9 +39,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-          server-id: github
-          server-username: gabriel-fonseca-repo
-          server-password: ${{ secrets.CALC_LIB_PACKAGE_TOKEN }}
       # -----------------
       - name: Step 3 - Publish JAR to GitHub Packages
-        run: mvn -Dskiptests deploy --file pom.xml
+        run: mvn -B -Dskiptests deploy --file pom.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.CALC_LIB_PACKAGE_TOKEN }}
+          GITHUB_REPOSITORY: gabriel-fonseca/calc-lib
+          GITHUB_ACTOR: gabriel-fonseca-repo
