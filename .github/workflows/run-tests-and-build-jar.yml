@@ -19,7 +19,7 @@ jobs:
           java-version: '17'
       # -----------------
       - name: Step 3 - Build project and run tests
-        run: mvn -B clean verify package --file pom.xml
+        run: mvn -B clean verify --file pom.xml
       # -----------------
       - name: Step 4 - Reading directory
         run: |
